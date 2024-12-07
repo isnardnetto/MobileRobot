@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.6 on win32)" generated="2024-12-06T00:31:17.715715" rpa="false" schemaversion="5">
+<suite id="s1" name="Click" source="C:\QAx\projects\yadaapp-robot\tests\click.robot">
+<test id="s1-t1" name="Deve realizar um clique simples" line="10">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>http://localhost:4723</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=Android Emulator</arg>
+<arg>automationName=UIAutomator2</arg>
+<arg>app=${EXECDIR}/app/yodapp-beta.apk</arg>
+<arg>udid=emulator-5554</arg>
+<arg>autoGrantPermissions=true</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-12-06T00:31:18.195747" elapsed="14.016592"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${START}</arg>
+<doc>Waits until `text` appears on current page.</doc>
+<status status="PASS" start="2024-12-06T00:31:32.212339" elapsed="5.164015"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2024-12-06T00:31:38.204315" level="INFO">xpath criteria: //*[contains(@text,"QAX")]</msg>
+<arg>${START}</arg>
+<doc>Click text identified by ``text``.</doc>
+<status status="PASS" start="2024-12-06T00:31:37.377351" elapsed="0.826964"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-06T00:31:38.204826" level="INFO">${hamburguer} = xpath=//*[@content-desc="Open navigation drawer"]</msg>
+<var>${hamburguer}</var>
+<arg>xpath=//*[@content-desc="Open navigation drawer"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-06T00:31:38.204315" elapsed="0.000511"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2024-12-06T00:31:39.462658" level="INFO">xpath criteria: //*[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<arg>5</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2024-12-06T00:31:38.204826" elapsed="1.257832"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-12-06T00:31:39.463656" level="INFO">Clicking element 'xpath=//*[@content-desc="Open navigation drawer"]'.</msg>
+<msg time="2024-12-06T00:31:39.613861" level="INFO">xpath criteria: //*[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-12-06T00:31:39.462658" elapsed="0.151203"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-12-06T00:31:44.614082" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-12-06T00:31:39.613861" elapsed="5.000221"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2024-12-06T00:31:44.615079" elapsed="0.404808"/>
+</kw>
+<status status="PASS" start="2024-12-06T00:31:18.194749" elapsed="26.826135"/>
+</test>
+<status status="PASS" start="2024-12-06T00:31:17.719705" elapsed="27.301179"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Click">Click</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

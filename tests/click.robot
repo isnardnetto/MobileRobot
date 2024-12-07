@@ -2,9 +2,12 @@
 
 Library  AppiumLibrary
 
-*** Test Cases ***
+*** Variables ***
 
-Deve abrir a tela principal
+${START}  QAX
+
+*** Test Cases ***
+Deve realizar um clique simples
 
     Open Application	http://localhost:4723	
   ...                 platformName=Android
@@ -15,8 +18,13 @@ Deve abrir a tela principal
   ...                 autoGrantPermissions=true
 
 
-  Wait Until Page Contains    Yodapp        
-  Wait Until Page Contains    Mobile Training
-  Wait Until Page Contains    by Papito
+  Wait Until Page Contains       ${START} 
+  Click Text                     ${START}
 
+  ${hamburguer}   Set Variable  xpath=//*[@content-desc="Open navigation drawer"]
+  Wait Until Element Is Visible  ${hamburguer}     5
+  Click Element                  ${hamburguer}
+
+  Sleep     5
+  
   Close Application
