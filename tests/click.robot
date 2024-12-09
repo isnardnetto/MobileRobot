@@ -1,6 +1,7 @@
 *** Settings ***
 
 Library  AppiumLibrary
+Library    OperatingSystem
 
 *** Variables ***
 
@@ -25,6 +26,17 @@ Deve realizar um clique simples
   Wait Until Element Is Visible  ${hamburguer}     5
   Click Element                  ${hamburguer}
 
-  Sleep     5
-  
+  ${menu_item}    Set Variable  xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]
+
+  Wait Until Element Is Visible  ${menu_item}           5
+  Click Element                  ${menu_item}
+
+  Wait Until Page Contains   Clique simples  5
+  Click text                 Clique simples
+  Wait Until Page Contains   Botão clique simples
+
+  Click text                 CLIQUE SIMPLES
+  Wait Until Page Contains   Isso é um clique simples
+
+ 
   Close Application
